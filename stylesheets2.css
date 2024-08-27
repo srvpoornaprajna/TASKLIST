@@ -1,0 +1,26 @@
+.form{
+    margin-left: 25%;
+    margin-top: 2%;
+    border: 1px solid #5e585c;
+    width:40vw;
+    padding: 2rem;
+    border-radius: 5px;
+    height: fit-content;
+}
+body{
+    background-color: #e8d8e1;
+}
+img{
+    width:30vw ;
+}
+@media only screen and (max-width: 600px) {
+    .form{
+    margin-left: 25%;
+    margin-top: 2%;
+    border: 1px solid #5e585c;
+    width:60vw;
+    padding: 2rem;
+    border-radius: 5px;
+    height: 120vw;
+}
+}

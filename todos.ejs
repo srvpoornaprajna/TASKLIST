@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todos</title>
+    <link rel="stylesheet" href="stylesheets1.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</head>
+<body>
+        <% if(error && error.length){%>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <%= error %> 
+            </div>
+            <%}%>
+    <h1 class="title">TO-DO List</h1>
+   
+    <div class="names">
+    <% for(let name of names){ %>
+               
+                <div class="listName">
+                    <form action="/todos/<%= name._id %>" class="checkbox" method="post">
+                        <input type="checkbox"  name="todo" id="check">
+                    </form>
+                    <button class="show"><%= name.todo %><span class="del">Add new sub task</span> </button>
+                    
+                    <form action="/todos/<%=name._id%>?_method=DELETE" class="delete" method="post">
+                        <button class="btn"><span class="btn1">&#x274C;</span><span class="del">delete</span> </button></form>  
+            </div>
+            
+            <div class="works">
+                <% if(name.lists.length){ %> 
+                <% for(let list of name.lists){ %> 
+                    <div class="work"><form action="/todos/<%=list._id%>/lists?_method=DELETE"  method="post"><button>delete</button></form><%=list.work %> </div>
+                    <% } %> 
+                    <% }else{%>
+                        <div style="color: white;">Nothing here</div>
+                    <%} %>
+                    <form action="/todos/<%= name._id %>/lists" method="post" class="list" name="work">
+                        <label for="work"></label>
+                        <input type="text" id="work" name="work" required>
+                        <button class="addWork" style="cursor:pointer;">add sub task</button>
+                    </form>   
+                    
+            </div>
+           
+          <% } %> 
+         
+        </div>
+        <div class="add">
+        <form action="/todos" method="post" name="name">
+            <label for="name"></label>
+            <input type="text" id="name" placeholder="Add your task"  name="todo" required >
+            <button class="addbtn">+</button>
+        </form> 
+    </div>
+
+    <a href="/completed">Show completed task</a>
+    <a href="/logout">Logout</a>
+    <script src="javascript1.js"></script>
+</body>
+</html>

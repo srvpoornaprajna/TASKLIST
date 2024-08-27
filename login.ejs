@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</head>
+<style>
+    .form{
+        margin-left: 25%;
+        margin-top: 2%;
+        border: 1px solid #5e585c;
+        width:40vw;
+        padding: 2rem;
+        border-radius: 5px;
+        height: fit-content;
+    }
+    body{
+        background-color: #e8d8e1;
+    }
+    img{
+        width:30vw ;
+    }
+    @media only screen and (max-width: 600px) {
+        .form{
+        margin-left: 25%;
+        margin-top: 2%;
+        border: 1px solid #5e585c;
+        width:60vw;
+        padding: 2rem;
+        border-radius: 5px;
+        height: 120vw;
+    }
+}
+</style>
+<body>
+    
+       <div class="form">
+           <img src="https://media.istockphoto.com/photos/icon-composition-with-calendar-with-scheduled-dates-and-appointments-picture-id1396191338?b=1&k=20&m=1396191338&s=170667a&w=0&h=cVmZ2ft2Po81xf7LXDRbhucEmvFzP1u4bHEs5BnyZLg=" alt="">
+    <form class="needs-validation" action="/login" method="post" novalidate>
+        <div class="form-col">
+          <div class="col-md-15 mb-3">
+            <label for="validationCustom01">Username</label>
+            <input type="text" class="form-control" id="validationCustom01" placeholder="User name" name="username" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-md-15 mb-3">
+            <label for="validationCustom02">Password</label>
+            <input type="password" class="form-control" id="validationCustom02" placeholder="Password"  name="password" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+    </div>
+        <a href="/register">Havent Registered yet?</a>
+        <a class="btn btn-secondary ml-10" href="/">Home</a>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
+            </script>
+</body>
+</html>
+<!-- <form action="/login" method="post">
+    <label for="username">User name : </label>
+    <input type="text" id="username" name="username">
+    <label for="password">Password : </label>
+    <input type="password" id="password" name="password">
+    <button>login</button>
+</form> -->
